@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Edit</title>
+    <link href="/css/edit-task.css" rel="stylesheet">
+    <link th:rel="stylesheet" th:href="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.15.4/css/all.css} "/>
+</head>
+<body>
+<div align="center">
+    <h1>Edit task</h1>
+    <div class="container-abt">
+    <div>
+        <form method="post" th:object="${task}">
+            <div class="form-group1 " >
+                <label for="name">Name</label>
+                <input id="name" th:field="*{name}" type="text">
+            </div>
+            <div class="form-group1">
+                <label for="description">Description</label>
+                <input id="description" th:field="*{description}" type="text">
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+
+
+                <label for="creationDate">creationDate</label>
+                <!--                <input id="creationDate" th:field="*{creationDate}" type="text">-->
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"
+                           th:field="*{creationDate}" id="creationDate" placeholder="Date"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                <label for="endDate">endDate</label>
+                <!--                <input id="endDate" th:field="*{endDate}" type="text">-->
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"
+                           th:field="*{endDate}" id="endDate" placeholder="Date"/>
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4">
+                <label for="successDate">successDate</label>
+                <!--                <input id="successDate" th:field="*{successDate}" type="text">-->
+                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3"
+                           th:field="*{successDate}" id="successDate" placeholder="Date"/>
+                    <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div>
+                <a th:href="@{/tasks}">
+                    <button class="btn btn-secondary" id="cancel" name="cancel" type="button">Cancel</button>
+                </a>
+                <button class="btn btn-primary" id="save" name="save" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+    </div>
+    <br/><br/>
+
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/moment/moment.min.js}"></script>
+<script th:src="@{/assets/tempusdominus-bootstrap-4/tempusdominus-bootstrap-4.min.js}"></script>
+
+<script>
+    $.fn.datetimepicker.Constructor.Default = $.extend({}, $.fn.datetimepicker.Constructor.Default, {
+        icons: {
+            time: 'far fa-clock',
+            date: 'far fa-calendar',
+            up: 'fas fa-arrow-up',
+            down: 'fas fa-arrow-down',
+            previous: 'fas fa-chevron-left',
+            next: 'fas fa-chevron-right',
+            today: 'far fa-calendar-check-o',
+            clear: 'far fa-trash',
+            close: 'far fa-times'
+        }
+    });
+
+    $('#datetimepicker1').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+    $('#datetimepicker2').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+    $('#datetimepicker3').datetimepicker({
+        format: 'DD/MM/YYYY'
+    });
+</script>
+</body>
+</html>

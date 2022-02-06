@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/about.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+
+}
+
+#about-section {
+    width:50vw;
+    margin: 50px auto auto;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: #f82249;
+}
+.theme-color{
+    color: var(--main-color);
+}
+
+button.btn{
+    background: none;
+    color:var(--main-color);
+    border: 2px solid var(--main-color) ;
+    border-radius: 35px;
+}
+button.btn:hover{
+    background: var(--main-color);
+    color:whitesmoke;
+}
+
+.navbar ul li a{
+    padding:10px 15px;
+    margin: 2px 8px;
+}
+
+.navbar ul li a.act, .navbar ul li a:hover{
+    background: var(--main-color);
+    color: white!important;
+}
+
+.main{
+    background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("../img/about.jpg");
+    height: 100vh;
+}
+
+.meet{
+    margin-top: 10rem;
+}
+
+.navbar-brand{
+    color: var(--main-color);
+    border-bottom: 2px  solid var(--main-color);
+    margin-left: 30px;
+}
+
+

@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../img/login.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+#login .container #login-row #login-column #login-box {
+    margin-top: 300px;
+    max-width: 600px;
+    height: 320px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 10px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+    margin-top: -85px;
+}
+

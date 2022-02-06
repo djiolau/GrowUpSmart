@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <div th:replace="fragments/head-css :: head-css"/>
+
+    <link href="/css/tasks.css" rel="stylesheet">
+    <title>Tasks</title>
+</head>
+
+<body>
+
+<div class="row d-flex justify-content-sm container">
+    <div class="col-md-5">
+        <div class="card-hover-shadow-2x mb-3 card">
+            <div class="card-header-tab card-header">
+                <div class="card-header-title font-size-lg text-capitalize font-weight-normal"><i
+                        class="fa fa-tasks"></i>Task Lists
+                </div>
+            </div>
+            <div class="scroll-area-sm">
+                <perfect-scrollbar class="ps-show-limits">
+                    <div style="position: static;" class="ps ps--active-y">
+                        <div class="ps-content">
+                            <ul class=" list-group list-group-flush">
+                                <li class="list-group-item" th:each="task : ${tasks}">
+                                    <div class="todo-indicator bg-warning"></div>
+                                    <div class="widget-content p-0">
+                                        <div class="widget-content-wrapper">
+                                            <div class="widget-content-left mr-2">
+                                                <div class="custom-checkbox custom-control"><input
+                                                        class="custom-control-input" id="exampleCustomCheckbox12"
+                                                        type="checkbox">
+                                                    <label class="custom-control-label" for="exampleCustomCheckbox12">&nbsp;</label>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-left">
+                                                <div class="widget-heading" th:text="${task.name}"></div>
+                                                <div class="widget-subheading"><i th:text="${task.description}"></i>
+                                                </div>
+                                            </div>
+                                            <div class="widget-content-right">
+                                                <a th:href="@{/tasks/{id}/edit(id=${task.id})}"
+                                                   class="border-0 btn-transition btn btn-outline-danger"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a th:onclick="'alert(\'Congratulations on finishing your task!\');'"
+                                                   th:href="@{/tasks/accept/{id}(id=${task.id})}"
+                                                   class="border-0 btn-transition btn btn-outline-success"><i
+                                                        class="fa fa-check"></i></a>
+                                                <a th:data-confirm-delete="|Are you sure you want to delete this task ${task.name}?|"
+                                                   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+                                                   th:href="@{/tasks/{id}/delete(id=${task.id})}"
+                                                   class="border-0 btn-transition btn btn-outline-danger"><i
+                                                        class="fa fa-trash"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </perfect-scrollbar>
+            </div>
+            <div class="d-block text-md-end card-footer">
+<!--                <a th:href="@{/}">-->
+<!--                    <button class="mr-2 btn btn-link btn-sm">Back</button>-->
+<!--                </a>-->
+                <a class="btn btn-primary" th:href="@{/tasks/add}">Add Task</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="main">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">Be Awesome!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link act" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registration">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+
+</body>
+
+<header>
+
+</header>
+
+
+</html>

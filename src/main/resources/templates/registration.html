@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link href="/css/registration.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+<body>
+
+
+<div class="container-reg">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+            <form th:action="@{/signUpUser}" th:object="${user}" method="post">
+                <div class="form-row">
+                    <div class="col-md-6 form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" th:field="*{lastName}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" th:field="*{firstName}">
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="email">E-Mail</label>
+                        <input class="form-control" id="email" type="email" th:field="*{email}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="text">Password</label><br>
+                    <input type="password" name="password"  id="password" class="form-control">
+                </div>
+
+                <div class="col-md-6 form-group">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3 ">Register</button>
+                <!--                th:onclick="'alert(\'User successfully created!\');'"-->
+                <a th:href="@{/}">
+                    <button class="btn btn-secondary btn-block mt-3" id="cancel" name="cancel" type="button">Cancel
+                    </button>
+                </a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+</div>
+</body>
+</html>
